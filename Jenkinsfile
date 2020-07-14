@@ -1,11 +1,18 @@
 node {
     stage ('GIT CheckOut') {
         
-		sh 'git clone https://github.com/admin-2013/My-Project.git'
+		sh 'https://github.com/MuraliKarre/Vault.git'
     }
     stage ('Build Artifact') {
 	
      sh 'ansible --version'
+	 withCredentials([string(credentialsId: 'AnsibleSecret', variable: 'Secret')]) {
+   
+   
+          sh 'ansible-vault view Vaultfile --ask-vault-pass '${Secret}' '
+   
+   
+        }
      	 
     
     
