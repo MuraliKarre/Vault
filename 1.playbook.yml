@@ -8,10 +8,16 @@
       git:
             repo: https://{{ guser }}:{{ gpasswd }}@github.com/MuraliKarre/Newone.git
             dest: /root/git
-       tags:
+      tags:
           - git
       #shell: git clone https://{{ guser }}:{{ gpasswd }}@github.com/MuraliKarre/Newone.git
-    - name:
-      shell: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+    - name: Docker Login
+      docker_login:
+       username: "{{ DOCKER_USERNAME }}"
+       password: "{{ DOCKER_PASSWORD }}"
       tags:
-          - docker 
+          - docker
+    - name: Dock log
+      shell:  docker login -u={{ DOCKER_USERNAME }} -p={{ DOCKER_PASSWORD }}
+      tags:
+           - dok 
