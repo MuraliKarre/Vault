@@ -1,0 +1,8 @@
+- name: Working with Vault
+  hosts: localhost
+  become: true
+  vars_files:
+          - vault-pass.yml
+  tasks:
+    - name: Clone Repo
+      shell: git clone https://{{ guser }}:{{ gpasswd }}@github.com/MuraliKarre/Newone.git
