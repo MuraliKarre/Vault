@@ -5,4 +5,7 @@
           - vault-pass.yml
   tasks:
     - name: Clone Repo
-      shell: git clone https://{{ guser }}:{{ gpasswd }}@github.com/MuraliKarre/Newone.git
+      git:
+            repo: https://{{ guser }}:{{ gpasswd }}@github.com/MuraliKarre/Newone.git
+            dest: $WORKSPACE
+      #shell: git clone https://{{ guser }}:{{ gpasswd }}@github.com/MuraliKarre/Newone.git
