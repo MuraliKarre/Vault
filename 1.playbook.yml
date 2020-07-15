@@ -7,5 +7,11 @@
     - name: Clone Repo
       git:
             repo: https://{{ guser }}:{{ gpasswd }}@github.com/MuraliKarre/Newone.git
-            dest: $WORKSPACE
+            dest: /root/git
+       tags:
+          - git
       #shell: git clone https://{{ guser }}:{{ gpasswd }}@github.com/MuraliKarre/Newone.git
+    - name:
+      shell: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+      tags:
+          - docker 
